@@ -15,11 +15,11 @@ public class ConversorMoneda {
         return monto * cotizacion;
     }
 
-    // Acá cambié para que la excepcion se lance cuando el monto en dolares (divisor) sea cero
     public double calcularCotizacion(double montoPesos, double montoDolares) {
-        if (montoDolares == 0) {
-            throw new ArithmeticException("El monto en dolares no puede ser cero.");
+        if (montoPesos == 0 || montoDolares == 0) {
+            throw new ArithmeticException("El monto en pesos no puede ser cero.");
         }
+        
         return montoPesos / montoDolares;
     }
 
