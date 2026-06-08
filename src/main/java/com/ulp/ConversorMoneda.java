@@ -16,11 +16,18 @@ public class ConversorMoneda {
     }
 
     public double calcularCotizacion(double montoPesos, double montoDolares) {
-        if (montoPesos == 0 || montoDolares == 0) {
+        if (montoPesos == 0) {
             throw new ArithmeticException("El monto en pesos no puede ser cero.");
         }
         
-        return montoPesos / montoDolares;
+        if(montoDolares == 0){
+            return 0.0;
+        }
+        
+
+        double resultado = Math.abs(montoPesos / montoDolares);
+        
+        return Math.round(resultado*100)/100.0;
     }
 
     public double aumentarSaldo(double saldoActual, double montoComprado) {
